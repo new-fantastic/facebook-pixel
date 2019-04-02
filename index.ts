@@ -8,4 +8,4 @@ const moduleConfig: VueStorefrontModuleConfig = {
   afterRegistration
 }
 
-export const facebookPixel = new VueStorefrontModule(moduleConfig)
+export const VsfFacebookPixel = new VueStorefrontModule(moduleConfig)
