@@ -1,0 +1,7 @@
+{
+  "name": "vsf-facebook-pixel",
+  "version": "0.1.0",
+  "description": "Facebook Pixel module for Vue Storefront",
+  "author": allozaur <alek@newfantastic.com>, filipjedrasik <filip.jdrasik@gmail.com>,
+  "license": "MIT"
+}
