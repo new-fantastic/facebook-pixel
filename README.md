@@ -48,6 +48,23 @@ VsfFacebookPixel
 ...
 ]
 ```
+
+### Add new settings to your `../vue-storefront/config/local.json` file
+
+```json
+"facebookPixel" : {
+   "id" : "123456789012345"
+}
+```
+
 ## 3. Usage
 
-...
+Events available out-of-the-box:
+
+- `PageView`
+- `Search`
+- `ViewContent`
+- `AddToCart`
+- `AddToWishlist`
+- `InitiateCheckout`
+- `Purchase`
