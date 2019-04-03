@@ -1,6 +1,6 @@
 {
   "name": "vsf-facebook-pixel",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Facebook Pixel module for Vue Storefront",
   "main": "index.ts",
   "scripts": {
