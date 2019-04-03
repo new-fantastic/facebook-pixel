@@ -2,21 +2,41 @@
 
 Facebook Pixel module for Vue Storefront.
 
+> Facebook Pixel documentation: https://developers.facebook.com/docs/facebook-pixel
+
 <br>
 
 ## Main features
 
-...
+This module enables you to seamlessly implement **Facebook Pixel** functionality to your Vue Storefront app.
+
+<br>
+
+It features generating standard Facebook Pixel events **out-of-the-box**:
+
+- `PageView` - default event on triggered on every route change
+
+- `ViewContent` - triggered on entering `pages/Product.vue` route. Available object properties:
+  - `content_ids` (viewed Product SKU)
+  - `content_name` (viewed Product Name)
+  - `content_type` (set as `product`)
+  - `currency` (current Store View `currencyCode`)
+  - `value` (viewed Product Price)
+
+- `AddToCart` - triggered after Product is added to cart. Available object properties:
+  - `content_ids` (viewed Product SKU)
+  - `content_name` (viewed Product Name)
+  - `content_type` (set as `product`)
+  - `value` (viewed Product Price)
+  - `currency` (current Store View `currencyCode`)
+
+<br>
 
 ## Installation
 
 <br>
 
 ### 1. Download the module
-
-<br>
-
-#### a. Via `git`
 
 <br>
 
@@ -27,20 +47,6 @@ cd ../vue-storefront/src/modules;
 git clone https://github.com/new-fantastic/vsf-facebook-pixel.git;
 ```
 
-<br>
-
-#### b. Via `npm` / `yarn`
-
-<br>
-
-Go to your theme's catalog and install the module from `npm`.
-
-```bash
-cd ../vue-storefront/src/themes/your-theme;
-yarn add vsf-facebook-pixel;
-```
-
-<br>
 
 ### 2. Import and register the module 
 
@@ -64,7 +70,13 @@ VsfFacebookPixel
 
 <br>
 
-### 3. Add new settings to your `../vue-storefront/config/local.json` file
+### 3. Add new settings to your config
+
+<br>
+
+Go to `../vue-storefront/config/local.json` and add code below
+
+<br>
 
 ```json
 "facebookPixel" : {
@@ -72,14 +84,30 @@ VsfFacebookPixel
 }
 ```
 
-## Usage
+### 4. Set ESLint to ignore the module
 
-Events available out-of-the-box:
+<br>
+
+Go to `../vue-storefront/.eslintignore` and add code below
+
+```
+src/modules/vsf-facebok-pixel
+```
+
+<br>
+
+### And that's it! You're good to go :)
+
+<br>
+
+## Roadmap
+
+Standard events out-of-the-box:
 
 - [x] `PageView`
 - [x] `ViewContent`
 - [ ] `Search`
-- [ ] `AddToCart`
+- [x] `AddToCart`
 - [ ] `AddToWishlist`
 - [ ] `InitiateCheckout`
 - [ ] `Purchase`
