@@ -1,3 +1,5 @@
+import rootStore from '@vue-storefront/store'
+
 const facebookPixelSnippet = function (f, b, e, v, n, t, s) {
   if (f.fbq) return
   n = f.fbq = function () {
