@@ -8,11 +8,9 @@ Facebook Pixel module for Vue Storefront.
 
 ## Main features
 
-This module enables you to seamlessly implement **Facebook Pixel** functionality to your Vue Storefront app.
-
 <br>
 
-It features generating standard Facebook Pixel events **out-of-the-box**:
+This module enables you to seamlessly implement **Facebook Pixel** functionality to your Vue Storefront app, featuring generation of standard Facebook Pixel events **out-of-the-box**:
 
 - `PageView` - default event on triggered on every route change
 
@@ -93,6 +91,8 @@ Go to `../vue-storefront/config/local.json` and add code below
 
 Go to `../vue-storefront/.eslintignore` and add code below
 
+<br>
+
 ```
 src/modules/vsf-facebok-pixel
 ```
@@ -109,8 +109,8 @@ Standard events out-of-the-box:
 
 - [x] `PageView`
 - [x] `ViewContent`
-- [ ] `Search`
 - [x] `AddToCart`
 - [ ] `AddToWishlist`
 - [ ] `InitiateCheckout`
 - [ ] `Purchase`
+- [ ] `Search`
