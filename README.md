@@ -108,7 +108,7 @@ Standard events out-of-the-box:
 - [x] `PageView`
 - [x] `ViewContent`
 - [x] `AddToCart`
-- [ ] `AddToWishlist`
+- [x] `AddToWishlist`
 - [ ] `InitiateCheckout`
 - [ ] `Purchase`
 - [ ] `Search`
