@@ -76,10 +76,10 @@ VsfFacebookPixel
 
 Events available out-of-the-box:
 
-- `PageView`
-- `Search`
-- `ViewContent`
-- `AddToCart`
-- `AddToWishlist`
-- `InitiateCheckout`
-- `Purchase`
+- [x] `PageView`
+- [x] `ViewContent`
+- [ ] `Search`
+- [ ] `AddToCart`
+- [ ] `AddToWishlist`
+- [ ] `InitiateCheckout`
+- [ ] `Purchase`
