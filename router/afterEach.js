@@ -5,7 +5,7 @@ import evViewContent from '../events/ViewContent'
 import evAddToCart from '../events/AddToCart'
 import evAddToWishlist from '../events/AddToWishlist'
 
-export function afterEach(to, from) {
+export function afterEach (to, from) {
   const currency = rootStore.state.storeView.i18n.currencyCode
 
   // Each product's route has in name 'product' phrase!
