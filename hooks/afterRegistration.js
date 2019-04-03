@@ -1,4 +1,4 @@
-const facebookPixelSnippet = () => (function (f, b, e, v, n, t, s) {
+const facebookPixelSnippet = function (f, b, e, v, n, t, s) {
   if (f.fbq) return
   n = f.fbq = function () {
     n.callMethod
@@ -15,12 +15,11 @@ const facebookPixelSnippet = () => (function (f, b, e, v, n, t, s) {
   t.src = v
   s = b.getElementsByTagName(e)[0]
   s.parentNode.insertBefore(t, s)
-})
+}
 
 export function afterRegistration({ Vue, config, store, isServer }){
   if (!isServer && config.facebookPixel && config.facebookPixel.id) {
-    facebookPixelSnippet()
-    (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+    facebookPixelSnippet(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
     fbq('init', config.facebookPixel.id)
     fbq('track', 'PageView')
   }
