@@ -1,8 +1,12 @@
 import { afterRegistration } from './hooks/afterRegistration'
-import { VueStorefrontModule, VueStorefrontModuleConfig } from '@vue-storefront/core/lib/module'
+import { VueStorefrontModule, VueStorefrontModuleConfig, extendModule } from '@vue-storefront/core/lib/module'
 import { afterEach } from './router/afterEach'
 
+// Overriding wishlist
+import mutations from './wishlist/mutations'
+
 export const KEY = 'vsf-facebook-pixel'
+export const WS_KEY = 'wishlist'
 
 const moduleConfig: VueStorefrontModuleConfig = {
   key: KEY,
@@ -11,3 +15,12 @@ const moduleConfig: VueStorefrontModuleConfig = {
 }
 
 export const VsfFacebookPixel = new VueStorefrontModule(moduleConfig)
+
+const wishlistExtend = {
+  key: WS_KEY,
+  store: { modules: [{ key: WS_KEY, module: {
+    mutations
+  }}] }
+}
+
+extendModule(wishlistExtend)
