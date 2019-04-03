@@ -19,7 +19,7 @@ const facebookPixelSnippet = function (f, b, e, v, n, t, s) {
   s.parentNode.insertBefore(t, s)
 }
 
-export function afterRegistration({ Vue, config, store, isServer }){
+export function afterRegistration ({ Vue, config, store, isServer }) {
   if (!isServer && config.facebookPixel && config.facebookPixel.id) {
     facebookPixelSnippet(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
     fbq('init', config.facebookPixel.id)
