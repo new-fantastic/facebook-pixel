@@ -47,6 +47,7 @@ cd ../vue-storefront/src/modules;
 git clone https://github.com/new-fantastic/vsf-facebook-pixel.git;
 ```
 
+<br>
 
 ### 2. Import and register the module 
 
@@ -84,7 +85,9 @@ Go to `../vue-storefront/config/local.json` and add code below
 }
 ```
 
-### 4. Set ESLint to ignore the module
+<br>
+
+### 4. Set the module to be ignored by ESLint
 
 <br>
 
