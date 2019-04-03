@@ -21,11 +21,18 @@ This module enables you to seamlessly implement **Facebook Pixel** functionality
   - `currency` (current Store View `currencyCode`)
   - `value` (viewed Product Price)
 
-- `AddToCart` - triggered after Product is added to cart. Available object properties:
-  - `content_ids` (viewed Product SKU)
-  - `content_name` (viewed Product Name)
+- `AddToCart` - triggered after Product is added to Cart. Available object properties:
+  - `content_ids` (added Product SKU)
+  - `content_name` (added Product Name)
   - `content_type` (set as `product`)
-  - `value` (viewed Product Price)
+  - `value` (added Product `price` * `qty`)
+  - `currency` (current Store View `currencyCode`)
+  
+- `AddToWishlist` - triggered after Product is added to Wishlist. Available object properties:
+  - `content_ids` (added Product SKU)
+  - `content_name` (added Product Name)
+  - `content_type` (set as `product`)
+  - `value` (added Product `price` * `qty`)
   - `currency` (current Store View `currencyCode`)
 
 <br>
