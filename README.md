@@ -56,9 +56,7 @@ Go to `../vue-storefront/src/modules/index.ts` and add code below
 <br>
 
 ```js
-import { VsfFacebookPixel } from './vsf-facebook-pixel' // if installed via Git
-// or
-import { VsfFacebookPixel } from 'vsf-facebook-pixel'  // if installed via NPM/Yarn
+import { VsfFacebookPixel } from './vsf-facebook-pixel'
 ...
 export const registerModules: VueStorefrontModule[] = [
 ...
