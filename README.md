@@ -17,14 +17,14 @@ This module enables you to seamlessly implement **Facebook Pixel** functionality
 - `ViewContent` - triggered on entering `pages/Product.vue` route. Available object properties:
   - `content_ids` (viewed Product SKU)
   - `content_name` (viewed Product Name)
-  - `content_type` (set as `product`)
+  - `content_type` (set as `'product'`)
   - `currency` (current Store View `currencyCode`)
   - `value` (viewed Product Price)
 
 - `AddToCart` - triggered after Product is added to Cart. Available object properties:
   - `content_ids` (added Product SKU)
   - `content_name` (added Product Name)
-  - `content_type` (set as `product`)
+  - `content_type` (set as `'product'`)
   - `value` (added Product `price` * `qty`)
   - `currency` (current Store View `currencyCode`)
   
@@ -35,6 +35,22 @@ This module enables you to seamlessly implement **Facebook Pixel** functionality
   - `value` (added Product `price` * `qty`)
   - `currency` (current Store View `currencyCode`)
 
+- `InitiateCheckout` - triggered after Checkout is created. Available object properties:
+  - `content_category` (set as `'product'`)
+  - `content_type` (set as `'product'`)
+  - `content_ids` (Cart Products SKUs)
+  - `contents` (Cart contents - SKU, Price, Qty)
+  - `currency` (current Store View `currencyCode`)
+  - `num_items` (number of items in Cart)
+  - `value` (Cart Price for Checkout)
+- `Purchase` - triggered after Checkout success. Available object properties:
+  - `content_type` (set as `'product'`)
+  - `content_ids` (bought Products SKUs)
+  - `contents` (Checkout Cart contents - SKU, Price, Qty)
+  - `currency` (current Store View `currencyCode`)
+  - `num_items` (number of bought items in Cart)
+  - `value` (Checkout Total Price)
+  
 <br>
 
 ## Installation
