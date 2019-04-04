@@ -1,22 +1,13 @@
 import EventBus from '@vue-storefront/core/compatibility/plugins/event-bus/index'
-
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-};
+import debounce from '../util/debounce'
+import { EventAddToCart } from '../types/events'
 
 export default (fbq, currency) => {
-    let myDebounce = null
+    let myDebounce:(Function | null) = null
+
+    const track = (body: EventAddToCart) => {
+      fbq('track', 'AddToCart', body)
+    };
 
     // Product first time added to cart
     EventBus.$on('cart-before-add', product => {
@@ -24,7 +15,7 @@ export default (fbq, currency) => {
       if(!myDebounce) {
         myDebounce = debounce(() => {
           const pr = product.product
-          fbq('track', 'AddToCart', {
+          track({
             content_ids: pr.sku,
             content_name: pr.name,
             value: pr.priceInclTax * pr.qty,
@@ -41,7 +32,7 @@ export default (fbq, currency) => {
       if(!myDebounce) {
         myDebounce = debounce(() => {
           const pr = product.item
-          fbq('track', 'AddToCart', {
+          track({
             content_ids: pr.sku,
             content_name: pr.name,
             value: pr.priceInclTax * pr.qty,
