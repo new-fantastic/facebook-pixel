@@ -117,5 +117,5 @@ Triggering standard events out-of-the-box:
 - [x] `AddToCart`
 - [x] `AddToWishlist`
 - [x] `InitiateCheckout`
-- [ ] `Purchase`
+- [x] `Purchase`
 - [ ] `Search`
