@@ -94,20 +94,6 @@ Go to `../vue-storefront/config/local.json` and add code below
 
 <br/>
 
-### 4. Set the module to be ignored by ESLint
-
-<br/>
-
-Go to `../vue-storefront/.eslintignore` and add code below
-
-<br/>
-
-```
-src/modules/vsf-facebok-pixel
-```
-
-<br/>
-
 #### And that's it! You're good to go – the module automatically creates Facebook Pixel events. No need for additional configuration! :sunglasses:
 
 <br/>
