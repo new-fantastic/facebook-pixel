@@ -1,4 +1,4 @@
-export default (func, wait, immediate) => {
+export default (func, wait, immediate?: boolean): Function => {
 	var timeout;
 	return function() {
 		var context = this, args = arguments;

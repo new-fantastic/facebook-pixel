@@ -2,7 +2,10 @@ import rootStore from '@vue-storefront/store'
 import evPurchase from '../events/Purchase'
 import evSearch from '../events/Search'
 
-const facebookPixelSnippet = function (f, b, e, v, n, t, s) {
+declare const fbq
+
+const facebookPixelSnippet = function (f, b, e, v) {
+  let n, t, s
   if (f.fbq) return
   n = f.fbq = function () {
     n.callMethod
