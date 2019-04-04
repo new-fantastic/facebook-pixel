@@ -28,12 +28,12 @@ export default (fbq, currency) => {
                         value: rootStore.getters['cart/totals'][rootStore.getters['cart/totals'].length - 1].value
                 })
   
-                const cmsUrl = config.externalCheckout.cmsUrl
-                if(cmsUrl) {
-                        setTimeout(() => {
-                                const langPath = rootStore.state.storeView.url ? rootStore.state.storeView.url.substr(1) + '/' : ''
-                                window.location.replace(cmsUrl + langPath + 'vue/cart/sync/token/' + rootStore.state.user.token + '/cart/' + rootStore.state.cart.cartServerToken)   
-                        }, 1000)
-                } 
+                // const cmsUrl = config.externalCheckout.cmsUrl
+                // if(cmsUrl) {
+                //         setTimeout(() => {
+                //                 const langPath = rootStore.state.storeView.url ? rootStore.state.storeView.url.substr(1) + '/' : ''
+                //                 window.location.replace(cmsUrl + langPath + 'vue/cart/sync/token/' + rootStore.state.user.token + '/cart/' + rootStore.state.cart.cartServerToken)   
+                //         }, 1000)
+                // } 
             })
 }

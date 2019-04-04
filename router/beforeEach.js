@@ -7,10 +7,11 @@ export function beforeEach (to, from, next) {
     const currency = rootStore.state.storeView.i18n.currencyCode
   
     // Each product's route has in name 'product' phrase!
-    if(!isServer) {
-        if (to.name && to.name.includes('checkout')) {
+    //console.log(to.name)
+    if(!isServer && to.name) {
+        if (to.name.includes('checkout')) {
             evInitiateCheckout(fbq, currency)
-        } 
+        }
     }
     next()
 }
