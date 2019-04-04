@@ -1,6 +1,5 @@
 # vsf-facebook-pixel
 
-<br/>
 Facebook Pixel module for Vue Storefront.
 
 > Facebook Pixel documentation: https://developers.facebook.com/docs/facebook-pixel
@@ -11,9 +10,8 @@ Facebook Pixel module for Vue Storefront.
 
 <br/>
 
-- [Main features](#mainfeatures) 
+- [Main features](#main-features) 
 - [Installation](#installation)
-- [Usage](#usage)
 - [License](#license)
 
   <br/>  
@@ -112,3 +110,11 @@ Facebook Pixel module for Vue Storefront.
   <br/>
 
   #### And that's it! You're good to go – the module automatically creates Facebook Pixel events. No need for additional configuration! :sunglasses:
+
+<br/>
+
+## License
+
+<br/>
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
