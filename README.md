@@ -16,100 +16,99 @@ Facebook Pixel module for Vue Storefront.
 
   <br/>  
 
-  ## Main features
+## Main features
 
-  <br/>
+<br/>
 
-  This module enables you to seamlessly implement **Facebook Pixel** functionality to your Vue Storefront app, featuring generation of standard Facebook Pixel events **out-of-the-box**:
+This module enables you to seamlessly implement **Facebook Pixel** functionality to your Vue Storefront app, featuring generation of standard Facebook Pixel events **out-of-the-box**:
 
-  <br/>
+<br/>
 
-  ### Standard Facebook Pixel events
+### Standard Facebook Pixel events
 
-  <br/>
+<br/>
 
-  | Event name         | Description                                   | Passed parameters                                                                                                                                                                                                                                                                                                                     |
-  | ------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `PageView`         | Triggered on every route change.              | –                                                                                                                                                                                                                                                                                                                                     |
-  | `ViewContent`      | Triggered on entering Product route.          | - `content_ids` (viewed Product SKU)<br/>  - `content_name` (viewed Product Name) <br/>  - `content_type` (set as `'product'`)<br/>  - `currency` (current Store View `currencyCode`)<br/>  - `value` (viewed Product Price)                                                                                                          |
-  | `Search`           | Triggered when SearchPanel input has text     | - `search_string` (search input value)                                                                                                                                                                                                                                                                                                |
-  | `AddToCart`        | Triggered after Product is added to Cart.     | - `content_ids` (added Product SKU)<br/>  - `content_name` (added Product Name)    <br/>  - `content_type` (set as `'product'`)<br/>  - `value` (added Product `price` * `qty`)    <br/>  - `currency` (current Store View `currencyCode`)                                                                                            |
-  | `AddToWishlist`    | Triggered after Product is added to Wishlist. | - `content_ids` (added Product SKU)<br/>  - `content_name` (added Product Name)    <br/>  - `content_type` (set as `product`)<br/>  - `value` (added Product `price` * `qty`)    <br/>  - `currency` (current Store View `currencyCode`)                                                                                              |
-  | `InitiateCheckout` | Triggered after Checkout is created.          | - `content_category` (set as `'product'`)<br/>  - `content_type` (set as `'product'`)<br/>  - `content_ids` (Cart Products SKUs)<br/>  - `contents` (Cart contents - SKU, Price, Qty) <br/>  - `currency` (current Store View `currencyCode`)<br/>  - `num_items` (number of items in Cart)<br/>  - `value` (Cart Price for Checkout) |
-  | `Purchase`         | Triggered after Checkout success.             | - `content_type` (set as `'product'`)<br/>  - `content_ids` (bought Products SKUs)<br/>  - `contents` (Checkout Cart contents - SKU, Price, Qty)<br/>  - `currency` (current Store View `currencyCode`)<br/>  - `num_items` (number of bought items in Cart)<br/>  - `value` (Checkout Total Price)                                   |
+| Event name         | Description                                   | Passed parameters                                                                                                                                                                                                                                                                                                                     |
+| ------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PageView`         | Triggered on every route change.              | –                                                                                                                                                                                                                                                                                                                                     | `ViewContent`      | Triggered on entering Product route.          | - `content_ids` (viewed Product SKU)<br/>  - `content_name` (viewed Product Name) <br/>  - `content_type` (set as `'product'`)<br/>  - `currency` (current Store View `currencyCode`)<br/>  - `value` (viewed Product Price)                                                                                                          |
+| `Search`           | Triggered when SearchPanel input has text     | - `search_string` (search input value)                                                                                                                                                                                                                                                                                                |
+| `AddToCart`        | Triggered after Product is added to Cart.     | - `content_ids` (added Product SKU)<br/>  - `content_name` (added Product Name)    <br/>  - `content_type` (set as `'product'`)<br/>  - `value` (added Product `price` * `qty`)    <br/>  - `currency` (current Store View `currencyCode`)                                                                                            |
+| `AddToWishlist`    | Triggered after Product is added to Wishlist. | - `content_ids` (added Product SKU)<br/>  - `content_name` (added Product Name)    <br/>  - `content_type` (set as `product`)<br/>  - `value` (added Product `price` * `qty`)    <br/>  - `currency` (current Store View `currencyCode`)                                                                                              |
+| `InitiateCheckout` | Triggered after Checkout is created.          | - `content_category` (set as `'product'`)<br/>  - `content_type` (set as `'product'`)<br/>  - `content_ids` (Cart Products SKUs)<br/>  - `contents` (Cart contents - SKU, Price, Qty) <br/>  - `currency` (current Store View `currencyCode`)<br/>  - `num_items` (number of items in Cart)<br/>  - `value` (Cart Price for Checkout) |
+| `Purchase`         | Triggered after Checkout success.             | - `content_type` (set as `'product'`)<br/>  - `content_ids` (bought Products SKUs)<br/>  - `contents` (Checkout Cart contents - SKU, Price, Qty)<br/>  - `currency` (current Store View `currencyCode`)<br/>  - `num_items` (number of bought items in Cart)<br/>  - `value` (Checkout Total Price)                                   |
 
-  <br/>
+<br/>
 
-  ## Installation
+## Installation
 
-  <br/>
+<br/>
 
-  ### 1. Download the module
+### 1. Download the module
 
-  <br/>
+<br/>
 
-  Go to your `vue-storefront`'s `modules` catalog and clone the repository with the module.
+Go to your `vue-storefront`'s `modules` catalog and clone the repository with the module.
 
-  <br/>
+<br/>
 
-  ```bash
-  cd ../vue-storefront/src/modules;
-  git clone https://github.com/new-fantastic/vsf-facebook-pixel.git;
-  ```
+```bash
+cd ../vue-storefront/src/modules;
+git clone https://github.com/new-fantastic/vsf-facebook-pixel.git;
+```
 
-  <br/>
+<br/>
 
-  ### 2. Import and register the module
+### 2. Import and register the module
 
-  <br/>
+<br/>
 
-  Go to `../vue-storefront/src/modules/index.ts` and add code below
+Go to `../vue-storefront/src/modules/index.ts` and add code below
 
-  <br/>
+<br/>
 
-  ```js
-  import { VsfFacebookPixel } from './vsf-facebook-pixel'
-  ...
-  export const registerModules: VueStorefrontModule[] = [
-  ...
-  VsfFacebookPixel
-  ...
-  ]
-  ```
+```js
+import { VsfFacebookPixel } from './vsf-facebook-pixel'
+...
+export const registerModules: VueStorefrontModule[] = [
+...
+VsfFacebookPixel
+...
+]
+```
 
-  <br/>  
+<br/>  
 
-  ### 3. Add new settings to your config
+### 3. Add new settings to your config
 
-  <br/>
+<br/>
 
-  Go to `../vue-storefront/config/local.json` and add code below
+Go to `../vue-storefront/config/local.json` and add code below
 
-  <br/>
+<br/>
 
-  ```json
-  "facebookPixel" : {
+```json
+"facebookPixel" : {
   "id" : "123456789012345"
-  }
-  ```
+}
+```
 
-  <br/>
+<br/>
 
-  ### 4. Set the module to be ignored by ESLint
+### 4. Set the module to be ignored by ESLint
 
-  <br/>
+<br/>
 
-  Go to `../vue-storefront/.eslintignore` and add code below
+Go to `../vue-storefront/.eslintignore` and add code below
 
-  <br/>
+<br/>
 
-  ```
-  src/modules/vsf-facebok-pixel
-  ```
+```
+src/modules/vsf-facebok-pixel
+```
 
-  <br/>
+<br/>
 
-  #### And that's it! You're good to go – the module automatically creates Facebook Pixel events. No need for additional configuration! :sunglasses:
+#### And that's it! You're good to go – the module automatically creates Facebook Pixel events. No need for additional configuration! :sunglasses:
 
 <br/>
 
