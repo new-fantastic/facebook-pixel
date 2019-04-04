@@ -110,12 +110,12 @@ src/modules/vsf-facebok-pixel
 
 ## Roadmap
 
-Standard events out-of-the-box:
+Triggering standard events out-of-the-box:
 
 - [x] `PageView`
 - [x] `ViewContent`
 - [x] `AddToCart`
 - [x] `AddToWishlist`
-- [ ] `InitiateCheckout`
+- [x] `InitiateCheckout`
 - [ ] `Purchase`
 - [ ] `Search`
