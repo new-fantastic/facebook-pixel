@@ -1,5 +1,6 @@
 import rootStore from '@vue-storefront/store'
 import evPurchase from '../events/Purchase'
+import evSearch from '../events/Search'
 
 const facebookPixelSnippet = function (f, b, e, v, n, t, s) {
   if (f.fbq) return
@@ -26,8 +27,7 @@ export function afterRegistration ({ Vue, config, store, isServer }) {
     fbq('init', config.facebookPixel.id)
     fbq('track', 'PageView')
 
-    console.log('reg')
-
     evPurchase(fbq, rootStore.state.storeView.i18n.currencyCode)
+    evSearch(fbq)
   }
 }
