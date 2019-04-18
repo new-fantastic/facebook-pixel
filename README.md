@@ -2,7 +2,7 @@
 
 <br>
 
-Facebook Pixel module for Vue Storefront.
+✨ Facebook Pixel module for Vue Storefront ✨
 
 > Facebook Pixel documentation: https://developers.facebook.com/docs/facebook-pixel
 
