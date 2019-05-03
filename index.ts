@@ -6,7 +6,7 @@ import { beforeEach } from './router/beforeEach'
 // Overriding wishlist
 import mutations from './wishlist/mutations'
 
-export const KEY = 'vsf-facebook-pixel'
+export const KEY = 'facebook-pixel'
 export const WS_KEY = 'wishlist'
 
 const moduleConfig: VueStorefrontModuleConfig = {
@@ -15,7 +15,7 @@ const moduleConfig: VueStorefrontModuleConfig = {
   router: { afterEach, beforeEach }
 }
 
-export const VsfFacebookPixel = new VueStorefrontModule(moduleConfig)
+export const FacebookPixel = new VueStorefrontModule(moduleConfig)
 
 const wishlistExtend = {
   key: WS_KEY,

@@ -1,4 +1,4 @@
-# vsf-facebook-pixel
+# facebook-pixel
 
 <br>
 
@@ -55,7 +55,7 @@ Go to your `vue-storefront`'s `modules` catalog and clone the repository with th
 
 ```bash
 cd ../vue-storefront/src/modules;
-git clone https://github.com/new-fantastic/vsf-facebook-pixel.git;
+git clone https://github.com/new-fantastic/facebook-pixel.git;
 ```
 
 <br/>
@@ -69,11 +69,11 @@ Go to `../vue-storefront/src/modules/index.ts` and add code below
 <br/>
 
 ```js
-import { VsfFacebookPixel } from './vsf-facebook-pixel'
+import { FacebookPixel } from './facebook-pixel'
 ...
 export const registerModules: VueStorefrontModule[] = [
 ...
-VsfFacebookPixel
+FacebookPixel
 ...
 ]
 ```
