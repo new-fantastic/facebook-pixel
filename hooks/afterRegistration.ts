@@ -1,4 +1,4 @@
-import rootStore from '@vue-storefront/store'
+import rootStore from '@vue-storefront/core/store'
 import evPurchase from '../events/Purchase'
 import evSearch from '../events/Search'
 

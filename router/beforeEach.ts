@@ -1,4 +1,4 @@
-import rootStore from '@vue-storefront/store'
+import rootStore from '@vue-storefront/core/store'
 import { isServer } from '@vue-storefront/core/helpers'
 import { Route } from 'vue-router' 
 
