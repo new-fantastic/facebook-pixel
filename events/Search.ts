@@ -11,16 +11,16 @@ export default (fbq) => {
     }
 
     EventBus.$on('product-after-list', payload => {
-        if(payload.query._searchText.length > 0) {
+        if(payload.query.hasOwnProperty('_searchText') && payload.query._searchText.length > 0) {
             if(!myDebounce) {
                 myDebounce = debounce(function(body: EventSearch){
                     track(body)
                 }, 1000)
             }
 
-            myDebounce({
-                search_string: payload.query._searchText
-            })
+                myDebounce({
+                    search_string: payload.query._searchText
+                })
         }
     })
 }
