@@ -42,6 +42,5 @@ export default (fbq, currency) => {
           rootStore.getters["cart/totals"].length - 1
         ].value
     });
-    debugger;
   });
 };
