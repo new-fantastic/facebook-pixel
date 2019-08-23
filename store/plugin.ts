@@ -1,6 +1,5 @@
 import * as wishlistTypes from "@vue-storefront/core/modules/wishlist/store/mutation-types";
 import * as cartTypes from "@vue-storefront/core/modules/cart/store/mutation-types";
-import { Logger } from "@vue-storefront/core/lib/logger";
 import EventBus from "@vue-storefront/core/compatibility/plugins/event-bus/index";
 import evAddToCart from "../events/AddToCart";
 import rootStore from "@vue-storefront/core/store";

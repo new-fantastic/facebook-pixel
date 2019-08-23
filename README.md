@@ -12,11 +12,11 @@
 
 <br/>
 
-- [Main features](#main-features) 
+- [Main features](#main-features)
 - [Installation](#installation)
 - [License](#license)
 
-  <br/>  
+  <br/>
 
 ## Main features
 
@@ -30,14 +30,14 @@ This module enables you to seamlessly implement **Facebook Pixel** functionality
 
 <br/>
 
-| Event name         | Description                                   | Passed parameters                                                                                                                                                                                                                                                                                                                     |
-| ------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PageView`         | Triggered on every route change.              | _No event-specific parameters_                                                                                                                                                                                                                                                                                                                                     | `ViewContent`      | Triggered on entering Product route.          | - `content_ids` (viewed Product SKU)<br/>  - `content_name` (viewed Product Name) <br/>  - `content_type` (set as `'product'`)<br/>  - `currency` (current Store View `currencyCode`)<br/>  - `value` (viewed Product Price)                                                                                                          |
-| `Search`           | Triggered when SearchPanel input has text     | - `search_string` (search input value)                                                                                                                                                                                                                                                                                                |
-| `AddToCart`        | Triggered after Product is added to Cart.     | - `content_ids` (added Product SKU)<br/>  - `content_name` (added Product Name)    <br/>  - `content_type` (set as `'product'`)<br/>  - `value` (added Product `price` * `qty`)    <br/>  - `currency` (current Store View `currencyCode`)                                                                                            |
-| `AddToWishlist`    | Triggered after Product is added to Wishlist. | - `content_ids` (added Product SKU)<br/>  - `content_name` (added Product Name)    <br/>  - `content_type` (set as `product`)<br/>  - `value` (added Product `price` * `qty`)    <br/>  - `currency` (current Store View `currencyCode`)                                                                                              |
-| `InitiateCheckout` | Triggered after Checkout is created.          | - `content_category` (set as `'product'`)<br/>  - `content_type` (set as `'product'`)<br/>  - `content_ids` (Cart Products SKUs)<br/>  - `contents` (Cart contents - SKU, Price, Qty) <br/>  - `currency` (current Store View `currencyCode`)<br/>  - `num_items` (number of items in Cart)<br/>  - `value` (Cart Price for Checkout) |
-| `Purchase`         | Triggered after Checkout success.             | - `content_type` (set as `'product'`)<br/>  - `content_ids` (bought Products SKUs)<br/>  - `contents` (Checkout Cart contents - SKU, Price, Qty)<br/>  - `currency` (current Store View `currencyCode`)<br/>  - `num_items` (number of bought items in Cart)<br/>  - `value` (Checkout Total Price)                                   |
+| Event name         | Description                                   | Passed parameters                                                                                                                                                                                                                                                                                                               |
+| ------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PageView`         | Triggered on every route change.              | _No event-specific parameters_                                                                                                                                                                                                                                                                                                  | `ViewContent` | Triggered on entering Product route. | - `content_ids` (viewed Product SKU)<br/> - `content_name` (viewed Product Name) <br/> - `content_type` (set as `'product'`)<br/> - `currency` (current Store View `currencyCode`)<br/> - `value` (viewed Product Price) |
+| `Search`           | Triggered when SearchPanel input has text     | - `search_string` (search input value)                                                                                                                                                                                                                                                                                          |
+| `AddToCart`        | Triggered after Product is added to Cart.     | - `content_ids` (added Product SKU)<br/> - `content_name` (added Product Name) <br/> - `content_type` (set as `'product'`)<br/> - `value` (added Product `price` \* `qty`) <br/> - `currency` (current Store View `currencyCode`)                                                                                               |
+| `AddToWishlist`    | Triggered after Product is added to Wishlist. | - `content_ids` (added Product SKU)<br/> - `content_name` (added Product Name) <br/> - `content_type` (set as `product`)<br/> - `value` (added Product `price` \* `qty`) <br/> - `currency` (current Store View `currencyCode`)                                                                                                 |
+| `InitiateCheckout` | Triggered after Checkout is created.          | - `content_category` (set as `'product'`)<br/> - `content_type` (set as `'product'`)<br/> - `content_ids` (Cart Products SKUs)<br/> - `contents` (Cart contents - SKU, Price, Qty) <br/> - `currency` (current Store View `currencyCode`)<br/> - `num_items` (number of items in Cart)<br/> - `value` (Cart Price for Checkout) |
+| `Purchase`         | Triggered after Checkout success.             | - `content_type` (set as `'product'`)<br/> - `content_ids` (bought Products SKUs)<br/> - `contents` (Checkout Cart contents - SKU, Price, Qty)<br/> - `currency` (current Store View `currencyCode`)<br/> - `num_items` (number of bought items in Cart)<br/> - `value` (Checkout Total Price)                                  |
 
 <br/>
 
@@ -78,7 +78,7 @@ FacebookPixel
 ]
 ```
 
-<br/>  
+<br/>
 
 ### 3. Add new settings to your config
 
@@ -90,9 +90,12 @@ Go to `../vue-storefront/config/local.json` and add code below
 
 ```json
 "facebookPixel" : {
-  "id" : "123456789012345"
+  "id" : "123456789012345",
+  "useParentSku": true
 }
 ```
+
+useParentSku - whether use parent (configurable product)'s sku or simple product's sku - true for parent
 
 <br/>
 
