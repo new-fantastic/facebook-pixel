@@ -32,7 +32,7 @@ export default (fbq, currency) => {
                         contents,
                         currency,
                         num_items,
-                        value: rootStore.getters['cart/totals'][rootStore.getters['cart/totals'].length - 1].value
+                        value: rootStore.getters['cart/getTotals'][rootStore.getters['cart/getTotals'].length - 1].value
                 })
   
                 // const cmsUrl = config.externalCheckout.cmsUrl
