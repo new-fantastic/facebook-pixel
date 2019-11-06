@@ -11,9 +11,9 @@ export default (fbq, product, currency) => {
       config.facebookPixel.useParentSku && product.parentSku
         ? product.parentSku
         : product.sku,
-    content_name: product.name,
+    content_name: product.childName || product.name,
     content_type: "product",
     currency,
-    value: product.priceInclTax
+    value: product.priceInclTax || product.price_incl_tax
   });
 };

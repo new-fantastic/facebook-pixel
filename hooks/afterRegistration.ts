@@ -2,6 +2,7 @@ import rootStore from "@vue-storefront/core/store";
 import evPurchase from "../events/Purchase";
 import evSearch from "../events/Search";
 import evAddToWishlist from "../events/AddToWishlist";
+import evInitiateCheckout from '../events/InitiateCheckout'
 
 declare const fbq;
 
@@ -37,9 +38,12 @@ export function afterRegistration({ Vue, config, store, isServer }) {
 
         const currency = rootStore.state.storeView.i18n.currencyCode;
 
-        evPurchase(fbq, currency);
-        evSearch(fbq);
-        evAddToWishlist(fbq, currency);
+        if(!isServer) {
+          evPurchase(fbq, currency);
+          evSearch(fbq);
+          evAddToWishlist(fbq, currency);
+          evInitiateCheckout(fbq, currency)
+        }
       }
     );
   }

@@ -11,7 +11,7 @@ export function afterEach(to: Route, from: Route) {
 
   // Each product's route has in name 'product' phrase!
   if (!isServer) {
-    if (to.name.match(/product/)) {
+    if (to.name.match(/product/) || (to.meta && to.meta.componentName && to.meta.componentName === 'product')) {
       // ViewContent event
       evViewContent(fbq, rootStore.state.product.current, currency);
     }
