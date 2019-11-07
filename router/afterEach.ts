@@ -10,10 +10,10 @@ export function afterEach(to: Route, from: Route) {
   const currency = rootStore.state.storeView.i18n.currencyCode;
 
   // Each product's route has in name 'product' phrase!
-  if (!isServer) {
-    if (to.name.match(/product/) || (to.meta && to.meta.componentName && to.meta.componentName === 'product')) {
+  // if (!isServer) {
+    // if (to.name.match(/product/) || (to.meta && to.meta.componentName && to.meta.componentName === 'product')) {
       // ViewContent event
-      evViewContent(fbq, rootStore.state.product.current, currency);
-    }
-  }
+      // evViewContent(fbq, rootStore.state.product.current, currency);
+    // }
+  // }
 }
