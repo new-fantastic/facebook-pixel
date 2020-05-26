@@ -23,8 +23,8 @@ export default (store: any, isPurchase: boolean): EventInitiateCheckout | EventP
     num_items += Number(item.qty);
   }
 
-  const totals = store.getters['cart/totals'];
-  const fullPrice = totals.find((total) => total.code == 'grand_total');
+  const totals = store.getters['cart/getTotals'];
+  const fullPrice = totals.find(total => total.code == 'grand_total');
 
   return {
     ...(!isPurchase ? {content_category: 'product'} : {}),
@@ -36,7 +36,7 @@ export default (store: any, isPurchase: boolean): EventInitiateCheckout | EventP
     value:
       fullPrice && fullPrice.value
         ? fullPrice.value
-        : store.getters['cart/totals'][store.getters['cart/totals'].length - 1]
+        : store.getters['cart/getTotals'][store.getters['cart/getTotals'].length - 1]
             .value,
   };
 };
