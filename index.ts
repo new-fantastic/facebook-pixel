@@ -1,8 +1,8 @@
-import { CartItem } from '@vue-storefront/core/modules/cart/types/CartItem';
 import { isServer } from '@vue-storefront/core/helpers';
 import { StorefrontModule } from '@vue-storefront/core/lib/modules'
 import { Route } from "vue-router";
 import prepareProductObject from './util/prepareProductObject';
+import prepareCheckoutObject from './util/prepareCheckoutObject';
 import Vue from 'vue'
 import getCurrency from './util/getCurrency';
 
@@ -65,58 +65,15 @@ export const FacebookPixel: StorefrontModule = function ({ router, store, appCon
             }
           })
         
-          Vue.prototype.$on("checkout-after-created", async data => {
-            const content_ids: Array<string | number> = [];
-            const contents: CartItem[] = [];
-            let num_items: number = 0;
-            for (let item of store.state.cart.cartItems) {
-              content_ids.push(
-                appConfig.facebookPixel.useParentSku && item.parentSku
-                  ? item.parentSku
-                  : item.sku
-              );
-              contents.push({
-                id: appConfig.facebookPixel.useParentSku && item.parentSku
-                  ? item.parentSku
-                  : item.sku,
-                quantity: item.qty,
-                item_price: item.priceInclTax
-              });
-              num_items += Number(item.qty);
-            }
-
-            const totals = store.getters["cart/totals"]
-            const fullPrice = totals.find(total => total.code == 'grand_total')
-        
-            fbq("track", "InitiateCheckout", {
-              content_category: "product",
-              content_type: "product",
-              content_ids,
-              contents,
-              currency: getCurrency(),
-              num_items,
-              value:
-                fullPrice && fullPrice.value 
-                ? fullPrice.value 
-                : (store.getters["cart/totals"][
-                    store.getters["cart/totals"].length - 1
-                  ].value)
-            });
+          Vue.prototype.$on("checkout-after-created", () => {
+            fbq('track', 'InitiateCheckout', prepareCheckoutObject(store, false));
           });
+
+          Vue.prototype.$bus.$on('order-before-placed', (payload) => {
+            fbq('track', 'Purchase', prepareCheckoutObject(store, true));
+          })
         }
       )
     }
   }
-  // StorageManager.init('wishlist')
-  // store.registerModule('wishlist', {
-  //   ...wishlistStore,
-  //   actions
-  // })
-  // store.subscribe(whishListPersistPlugin)
-
-  // once('__VUE_WISHLIST__', () => {
-  //   EventBus.$on('user-after-loggedin', () => {
-  //     store.dispatch('wishlist/load', { force: true })
-  //   })
-  // })
 }
