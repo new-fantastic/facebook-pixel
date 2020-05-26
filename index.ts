@@ -4,7 +4,6 @@ import { Route } from "vue-router";
 import prepareProductObject from './util/prepareProductObject';
 import prepareCheckoutObject from './util/prepareCheckoutObject';
 import Vue from 'vue'
-import getCurrency from './util/getCurrency';
 
 declare const fbq;
 
@@ -43,15 +42,6 @@ export const FacebookPixel: StorefrontModule = function ({ router, store, appCon
   
           router.afterEach((to: Route, from: Route) => {
             fbq("track", "PageView");
-          
-            // Each product's route has in name 'product' phrase!
-            // Better to prepare mixin for that
-            // if (!isServer) {
-            //   if (to.name.match(/product/)) {
-            //     // ViewContent event
-            //     evViewContent(fbq, rootStore.state.product.current, currency);
-            //   }
-            // }
           })
 
           store.subscribe(({ type, payload }) => {
@@ -65,7 +55,7 @@ export const FacebookPixel: StorefrontModule = function ({ router, store, appCon
             }
           })
         
-          Vue.prototype.$on("checkout-after-created", () => {
+          Vue.prototype.$bus.$on("checkout-after-created", () => {
             fbq('track', 'InitiateCheckout', prepareCheckoutObject(store, false));
           });
 
