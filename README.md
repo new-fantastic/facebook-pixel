@@ -99,6 +99,50 @@ useParentSku - whether use parent (configurable product)'s sku or simple product
 
 <br/>
 
+### 4. Add ViewContent event
+
+<br/>
+
+Go to your product's view and just import ViewContent mixin:
+
+<br/>
+
+```js
+import fbqViewContent from 'src/modules/vsf-facebook-pixel/components/ViewContent'
+
+export default {
+  // ...
+  mixins: [
+    // ...
+    fbqViewContent
+  ],
+}
+```
+
+### 5. Add Search event
+
+<br/>
+
+Go to your SearchPanel component, import Search mixin, Pixel's event will be dispatched after `query` change (there is watcher on `query`):
+
+<br/>
+
+```js
+import fbqSearch from 'src/modules/vsf-facebook-pixel/components/Search'
+
+export default {
+  // ...
+  mixins: [
+    // ...
+    fbqSearch
+  ]
+}
+```
+
+useParentSku - whether use parent (configurable product)'s sku or simple product's sku - true for parent
+
+<br/>
+
 #### And that's it! You're good to go – the module automatically creates Facebook Pixel events. No need for additional configuration! :sunglasses:
 
 <br/>
