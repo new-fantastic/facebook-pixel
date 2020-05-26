@@ -123,7 +123,7 @@ export default {
 
 <br/>
 
-Go to your SearchPanel component, import Search mixin, Pixel's event will be dispatched after `query` change (there is watcher on `query`):
+Go to your SearchPanel component, import Search mixin, Pixel's event will be dispatched after provided field change (there is watcher on field provided as argument to the mixin):
 
 <br/>
 
@@ -134,10 +134,13 @@ export default {
   // ...
   mixins: [
     // ...
-    fbqSearch
+    fbqSearch('search')
   ]
 }
 ```
+
+E.g. above code will watch changes in `search` field.
+There is also second optional argument `debounceTime` which allows you to specify debounce time while user typing query in search field.
 
 useParentSku - whether use parent (configurable product)'s sku or simple product's sku - true for parent
 

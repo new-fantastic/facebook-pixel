@@ -1,8 +1,20 @@
-export default {
+import debounce from '../util/debounce'
+
+export default (fieldToWatch, debounceTime = 350) => ({
+  data () {
+    return {
+      _debouncedSearchEvent: null
+    }
+  },
   watch: {
-    query (query) {
+    [fieldToWatch] (query) {
       if (query.length >= 3) {
-        this.fbpSearch(query)
+        if (!this._debouncedSearchEvent) {
+          this._debouncedSearchEvent = debounce((q) => {
+            this.fbpSearch(q)
+          }, debounceTime)
+        }
+        this._debouncedSearchEvent(query)
       }
     }
   },
@@ -13,4 +25,4 @@ export default {
       })
     }
   }
-}
+})
