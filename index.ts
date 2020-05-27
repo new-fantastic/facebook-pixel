@@ -1,3 +1,4 @@
+import { currentStoreView } from '@vue-storefront/core/lib/multistore';
 import { isServer } from '@vue-storefront/core/helpers';
 import { StorefrontModule } from '@vue-storefront/core/lib/modules'
 import { Route } from "vue-router";
@@ -28,7 +29,19 @@ const facebookPixelSnippet = function(f, b, e, v, callback) {
 
 export const FacebookPixel: StorefrontModule = function ({ router, store, appConfig }) {
   if (!isServer) {
-    if (!appConfig.facebookPixel || !appConfig.facebookPixel.id) {
+    const getPixelId = (): string => {
+      const { storeCode } = currentStoreView()
+      if (!appConfig.facebookPixel) {
+        return ''
+      }
+      return appConfig.facebookPixel[`id_${storeCode}`]
+        ? appConfig.facebookPixel[`id_${storeCode}`]
+        : appConfig.facebookPixel.id
+    }
+
+    const pixelId = getPixelId()
+
+    if (!pixelId) {
       console.log('[FBP] Check FBPixel configuration! ID not prvodied')
     } else {
       facebookPixelSnippet(

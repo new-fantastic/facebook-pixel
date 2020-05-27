@@ -150,6 +150,28 @@ useParentSku - whether use parent (configurable product)'s sku or simple product
 
 <br/>
 
+## Different FBPixel ID for certain storecode
+
+<br/>
+
+If you want dedicated FBPixel ID for certain storecode you need to set key named in pattern `id_<storeCode>`. Example for `es` storecode:
+
+<br/>
+
+```json
+"facebookPixel" : {
+  "id" : "123456789012345",
+  "id_es": "someSpecialPixelID",
+  "useParentSku": true
+}
+```
+
+<br/>
+
+If corresponding configuration for current storecode is hasn't been set - module will just use value of `id` key as a fallback.
+
+<br/>
+
 ## License
 
 <br/>
