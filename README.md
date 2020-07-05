@@ -1,8 +1,9 @@
-# vsf-facebook-pixel
+# VSF Facebook Pixel
 
 <br>
 
-✨ Facebook Pixel module for Vue Storefront ✨
+✨ Facebook Pixel module for Vue Storefront ✨  
+Requires VSF 1.11+
 
 > Facebook Pixel documentation: https://developers.facebook.com/docs/facebook-pixel
 
