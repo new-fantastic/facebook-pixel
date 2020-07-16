@@ -18,9 +18,7 @@ export default {
   },
   methods: {
     fbViewContent (product = this.product) {
-      if (!isServer) {
-        window.fbq('track', 'ViewContent', prepareProductObject(product))        
-      }
+      window.fbq('track', 'ViewContent', prepareProductObject(product))
     }
   }
 }
