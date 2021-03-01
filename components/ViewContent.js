@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-    fbViewContent (product = this.product) {
+    fbViewContent (product = this.getCurrentProduct) {
       window.fbq('track', 'ViewContent', prepareProductObject(product))
     }
   }
