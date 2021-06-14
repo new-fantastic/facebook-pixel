@@ -1,5 +1,5 @@
-import prepareProductObject from '../util/prepareProductObject'
-import { isServer } from '@vue-storefront/core/helpers'
+import prepareProductObject from '../util/prepareProductObject';
+import { isServer } from '@vue-storefront/core/helpers';
 
 export default {
   watch: {
@@ -8,17 +8,21 @@ export default {
       immediate: true,
       handler (product, oldProduct) {
         if (isServer) {
-          return
+          return;
         }
-        if (!oldProduct || (product && (product.id !== oldProduct.id || product.sku !== oldProduct.sku))) {
-          this.fbViewContent(product)
+        if (
+          !oldProduct ||
+          (product &&
+            (product.id !== oldProduct.id || product.sku !== oldProduct.sku))
+        ) {
+          this.fbViewContent(product);
         }
       }
     }
   },
   methods: {
     fbViewContent (product = this.product) {
-      window.fbq('track', 'ViewContent', prepareProductObject(product))
+      window.fbq('track', 'ViewContent', prepareProductObject(product));
     }
   }
-}
+};
